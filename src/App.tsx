@@ -1,5 +1,4 @@
 import Header from "./components/Header";
-// import Result from "./components/Result";
 import Search from "./components/Search";
 
 function App() {

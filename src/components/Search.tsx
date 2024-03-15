@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Search = () => {
   const [user, setUser] = useState([]);
-  const [name, setName] = useState("Octocat");
+  const [name, setName] = useState("");
   const [input, setInput] = useState("");
 
   const getUser = async () => {
@@ -10,7 +10,9 @@ const Search = () => {
     const data = await res.json();
     setUser(data);
   };
-
+  useEffect(()=>{
+    getUser();
+  },[name]);
   const handleClick = (e: any) => {
     e.preventDefault();
     if (input) {
@@ -19,11 +21,6 @@ const Search = () => {
     {console.log(user);
     }
   };
-useEffect(()=>{
-  getUser();
-},[name]);
-
-
   return (
     <div>
       <div className=" flex justify-between py-[9.5px] pr-[10px] pl-8 bg-[#FEFEFE] rounded-[15px] shadow-[0_16px_30px_-10px_rgba(70,96,187,0.20)] mb-6">
@@ -51,7 +48,7 @@ useEffect(()=>{
         <div>
           <div className=" flex justify-between items-center w-[480px] mb-[2px]">
             <h1 className=" text-[#2B3442] font-bold text-[26px] ">
-              The Octocat
+              The Octocat 
             </h1>
             <p className=" text-[#697C9A] text-[15px] ">Joined 25 Jan 2011</p>
           </div>
